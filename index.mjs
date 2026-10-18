@@ -1,7 +1,17 @@
 // ZINERK-XMD - WhatsApp bot (Baileys) with PAIRING CODE login (no QR)
 // Works in Termux, no root needed.
 // Extra dependency: jimp  ->  npm i @whiskeysockets/baileys pino jimp
+import http from "http";
 
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Running");
+}).listen(PORT, "0.0.0.0");
+
+// Code above was added to run an open port for Web service for the Render
+//to know the bot is Alive
 import makeWASocket, {
     DisconnectReason,
     downloadMediaMessage,
